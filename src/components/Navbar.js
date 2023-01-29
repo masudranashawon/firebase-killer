@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
   return (
     <nav className='navbar flex justify-between container mx-auto p-5 items-center border-b'>
       <div className='logo text-orange-500 font-semibold text-xl'>
         <Link to='/'>Firebase Killer</Link>
       </div>
-      <ul className='menus flex gap-10'>
+      <ul className='menus flex gap-10 items-center'>
         <li>
           <Link to='/' className='hover:text-orange-500 duration-300'>
             Home
@@ -23,8 +23,13 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link to='/login' className='hover:text-orange-500 duration-300'>
-            Login
+          <Link
+            to={`/${user?.email ? "profile" : "login"}`}
+            className={`hover:text-orange-500 duration-300 ${
+              user?.email && "font-bold text-orange-500"
+            }`}
+          >
+            {user?.email ? `Welcome, ${user.displayName}` : "login"}
           </Link>
         </li>
       </ul>
