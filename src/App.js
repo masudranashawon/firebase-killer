@@ -16,7 +16,7 @@ import RequireAuth2 from "./components/RequireAuth2";
 const auth = getAuth(app);
 
 const App = () => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState("");
 
   useEffect(() => {
     onAuthStateChanged(auth, (data) => {
@@ -55,7 +55,7 @@ const App = () => {
           path='/register'
           element={
             <RequireAuth2 user={user}>
-              <Register />
+              <Register user={user} setUser={setUser} />
             </RequireAuth2>
           }
         />

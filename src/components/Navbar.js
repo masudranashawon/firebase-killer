@@ -24,12 +24,12 @@ const Navbar = ({ user }) => {
         </li>
         <li>
           <Link
-            to={`/${user?.email ? "profile" : "login"}`}
-            className={`hover:text-orange-500 duration-300 ${
+            to={`/${user?.email ? "Profile" : "Login"}`}
+            className={`capitalize hover:text-orange-500 duration-300 ${
               user?.email && "font-bold text-orange-500"
             }`}
           >
-            {user?.email ? `Welcome, ${user.displayName}` : "login"}
+            {user?.email ? `Welcome, ${user.displayName}` : "Login"}
           </Link>
         </li>
       </ul>
